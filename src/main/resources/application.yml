@@ -1,0 +1,12 @@
+spring:
+  application:
+    name: uuid-gen
+
+server:
+  servlet:
+    context-path: /${spring.application.name}
+
+logging:
+  level:
+    info.lazycompiler: ${LOGGING_LEVEL:INFO}
+
