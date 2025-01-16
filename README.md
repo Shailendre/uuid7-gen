@@ -29,12 +29,12 @@ Follow these steps to set up the project locally:
 
 1. **Clone the repository**:
    ```bash
-	git clone https://github.com/Shailendre/uuid7-gen.git
+	  git clone https://github.com/Shailendre/uuid7-gen.git
    ```
 2. **Navigate to the project directory and build**:
   ```bash
-	cd uuid7-gen
-	mvn clean install
+    cd uuid7-gen & \
+	mvn clean install & \
 	mvn spring-boot:run
   ```
 
@@ -43,22 +43,22 @@ Follow these steps to set up the project locally:
 ## Accessing the Application
 
 ```bash
-http://localhost:8080/
+  http://localhost:8080/
 ```
 
 
 ## API Access
 
 ```bash
-curl localhost:8080/uuid-gen/v1/uuid7
+  curl localhost:8080/uuid-gen/v1/uuid7
 ```
 
 ## Response 
 ```json
 {
-"uuid" : "qwe3454-86uind-789",
-"_64bits" : 1234,
-"_128bits" : 1234567
+   "uuid": "01946cf5-f26c-7000-93d2-b4b9cb332850",
+   "_64bits": 113835694181085184,
+   "_128bits": 2099897917011546018076559999696578640
 }
 ```
 

@@ -77,7 +77,7 @@
 </head>
 <body>
 <div class="container">
-    <button class="btn-generate" onclick="generateUUID()">Generate UUIDv7</button>
+    <button class="btn-generate">Generate UUIDv7</button>
     <div class="table-container">
         <table>
             <thead>
@@ -89,7 +89,14 @@
             </tr>
             </thead>
             <tbody id="uuid-table-body">
-            <!-- Rows will be appended here -->
+            <#if uuid7??>
+            <tr>
+            <td>${uuid7.uuid()}</td>
+            <td>${uuid7._64bits()}</td>
+            <td>${uuid7._128bits()}</td>
+            <td>${.now?string.xs_ms_nz}</td>
+            </tr>
+            </#if>
             </tbody>
         </table>
     </div>
@@ -100,28 +107,5 @@
     </div>
 </div>
 
-<script>
-    function generateUUID() {
-        fetch('/uuid-gen/v1/uuid7') // Replace with your server endpoint
-            .then(response => response.json()) // Assuming your endpoint returns JSON
-            .then(data => {
-                const tableBody = document.getElementById('uuid-table-body');
-                const newRow = document.createElement('tr');
-                const timestamp = new Date(data.timestamp);
-                const formattedDate = timestamp.toLocaleString();
-                newRow.innerHTML = `
-                    <td>${data.uuid}</td>
-                    <td>${data._64bits}</td>
-                    <td>${data._128bits}</td>
-                    <td>${formattedDate}</td>
-                `;
-
-                tableBody.appendChild(newRow);
-            })
-            .catch(error => {
-                console.error('Error generating UUID:', error);
-            });
-    }
-</script>
 </body>
 </html>
